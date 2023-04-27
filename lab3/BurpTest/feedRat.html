@@ -1,0 +1,28 @@
+<p id="rat">May I have some rice?</p>
+<img src="img/rat.jpg" width="300">
+<p>
+	<button type="button" onclick="send()">Feed Corn</button>
+</p>
+<script>
+	function send() {
+		var postData = { "feed": "corn" };
+		postData = (function (obj) { // 转成post需要的字符串.
+			var str = "";
+			for (var prop in obj) {
+				str += prop + "=" + obj[prop] + "&"
+			}
+			return str;
+		})(postData);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "rat.php", true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.onreadystatechange = function () {
+			var XMLHttpReq = xhr;
+			if (XMLHttpReq.readyState == 4 && XMLHttpReq.status == 200) {
+				var text = XMLHttpReq.responseText;
+				alert(text);
+			}
+		};
+		xhr.send(postData);
+	}
+</script>

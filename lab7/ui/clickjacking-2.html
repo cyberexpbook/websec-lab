@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Congratulations!</title>
+    <style>
+        #target {
+            z-index: 1;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        #panel {
+            position: fixed;
+            left: 300px;
+            top: 0px;
+            width: 200px;
+        }
+        /* body {
+            cursor: none;
+        } */
+    </style>
+    <script>
+        window.onload = function() {
+            var oNode = document.getElementById('cursor');
+            var onmove = function (e) {
+                var nMoveX = e.clientX, nMoveY = e.clientY;
+                oNode.style.left = (nMoveX - 230) + "px";
+                oNode.style.top = (nMoveY + 220) + "px";
+            };
+            document.body.addEventListener('mousemove', onmove, true);
+        }    
+    </script>
+</head>
+
+<body>
+    <div id="malicious" style="z-index:2;">
+        <img src="assets/car.gif" height="200px"></img>
+        <p>Press the Button to Get Your Free Truck!</p>
+        <button type="button" ,
+            style="color:white;font-size:18px;
+            background-color:#df3033;
+            width: 142;
+            height: 46;
+            font-weight: 700;
+            font-family: microsoft yahei;
+            border: none;">Get the Truck</button>
+    </div>
+    <img style="position: absolute;z-index:999;" id="cursor" src="assets/cursor.png" width="40px" height="40px"/>
+    <img src="assets/flash.jpg" id="panel"/>
+</body>
+</html>
